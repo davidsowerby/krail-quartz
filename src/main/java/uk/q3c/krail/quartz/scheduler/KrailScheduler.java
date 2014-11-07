@@ -25,13 +25,13 @@ import uk.q3c.krail.i18n.Translate;
  *
  * @author David Sowerby
  */
-public class V7Scheduler extends StdScheduler {
+public class KrailScheduler extends StdScheduler {
 
     private final Translate translate;
     private I18NKey<?> displayDescriptionKey;
     private I18NKey<?> displayNameKey;
 
-    public V7Scheduler(Translate translate, QuartzScheduler sched) {
+    public KrailScheduler(Translate translate, QuartzScheduler sched) {
         super(sched);
         this.translate = translate;
     }

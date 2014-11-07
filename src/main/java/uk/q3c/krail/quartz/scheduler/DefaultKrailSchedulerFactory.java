@@ -31,19 +31,19 @@ import uk.q3c.krail.quartz.service.QuartzService;
 import java.util.Properties;
 
 /**
- * Enables the use of V7Scheduler to provide I18N support, but is otherwise the same as StdSchedulerFactory
+ * Enables the use of {@link KrailScheduler} to provide I18N support, but is otherwise the same as StdSchedulerFactory
  *
  * @author David Sowerby
  */
-public class DefaultV7SchedulerFactory extends StdSchedulerFactory implements V7SchedulerFactory {
-    private static Logger log = LoggerFactory.getLogger(DefaultV7SchedulerFactory.class);
+public class DefaultKrailSchedulerFactory extends StdSchedulerFactory implements KrailSchedulerFactory {
+    private static Logger log = LoggerFactory.getLogger(DefaultKrailSchedulerFactory.class);
     private final Translate translate;
     private final Provider<InheritingConfiguration> combinedConfigurationProvider;
     private final ApplicationConfiguration applicationConfiguration;
 
     @Inject
-    protected DefaultV7SchedulerFactory(Translate translate, ApplicationConfiguration applicationConfiguration,
-                                        Provider<InheritingConfiguration> combinedConfigurationProvider) {
+    protected DefaultKrailSchedulerFactory(Translate translate, ApplicationConfiguration applicationConfiguration,
+                                           Provider<InheritingConfiguration> combinedConfigurationProvider) {
         super();
         this.translate = translate;
         this.combinedConfigurationProvider = combinedConfigurationProvider;
@@ -51,14 +51,14 @@ public class DefaultV7SchedulerFactory extends StdSchedulerFactory implements V7
     }
 
     /**
-     * Overrides the instantiate method to create a {@link V7Scheduler} instance
+     * Overrides the instantiate method to create a {@link KrailScheduler} instance
      *
      * @see org.quartz.impl.StdSchedulerFactory#instantiate(org.quartz.core.QuartzSchedulerResources,
      * org.quartz.core.QuartzScheduler)
      */
     @Override
     protected Scheduler instantiate(QuartzSchedulerResources rsrcs, QuartzScheduler qs) {
-        Scheduler scheduler = new V7Scheduler(translate, qs);
+        Scheduler scheduler = new KrailScheduler(translate, qs);
         return scheduler;
     }
 
@@ -70,24 +70,24 @@ public class DefaultV7SchedulerFactory extends StdSchedulerFactory implements V7
      * <p/>
      * If two calls to createScheduler are made with a configuration holding the same name, the second call will return
      * the instance created by the first call. This is true even if the two calls are made from different instances of
-     * {@link DefaultV7SchedulerFactory}.
+     * {@link DefaultKrailSchedulerFactory}.
      * <p/>
      * Note that this method (delegated to {@link #composeConfiguration(SchedulerConfiguration)}) also provides the
      * logic to combined potential configuration sources as described in the javadoc for {@link
      * SchedulerConfiguration}.
      * The dependency on the ApplicationConfigurationService being started is managed through the {@link QuartzService}
      *
-     * @see uk.q3c.krail.quartz.scheduler.V7SchedulerFactory#createScheduler(uk.q3c.krail.quartz.scheduler
+     * @see KrailSchedulerFactory#createScheduler(uk.q3c.krail.quartz.scheduler
      * .SchedulerConfiguration)
      */
     @Override
-    public V7Scheduler createScheduler(SchedulerConfiguration configuration) throws SchedulerException {
+    public KrailScheduler createScheduler(SchedulerConfiguration configuration) throws SchedulerException {
         Properties properties = composeConfiguration(configuration);
         initialize(properties);
         Scheduler scheduler = getScheduler();
         log.debug("Scheduler '{}' created", scheduler.getMetaData()
                                                      .getSchedulerName());
-        return (V7Scheduler) scheduler;
+        return (KrailScheduler) scheduler;
     }
 
     /**

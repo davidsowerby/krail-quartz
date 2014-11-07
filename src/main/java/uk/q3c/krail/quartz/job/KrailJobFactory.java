@@ -26,12 +26,12 @@ import org.quartz.spi.TriggerFiredBundle;
  *
  * @author David Sowerby
  */
-public class V7JobFactory implements JobFactory {
+public class KrailJobFactory implements JobFactory {
 
     private final Injector injector;
 
     @Inject
-    protected V7JobFactory(Injector injector) {
+    protected KrailJobFactory(Injector injector) {
         super();
         this.injector = injector;
     }

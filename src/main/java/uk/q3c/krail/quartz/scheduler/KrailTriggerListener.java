@@ -21,13 +21,14 @@ import org.quartz.TriggerListener;
  * parameter constructor, the name cannot be set from the interface)
  * <p/>
  * This extended interface simply provides the missing method, which means that if you wish to use any of the
- * {@link TriggerListener} implementations provided by Quartz, with the V7 Guice mechanism, you will need to extend the
+ * {@link TriggerListener} implementations provided by Quartz, with the Krail Guice mechanism, you will need to extend
+ * the
  * Quartz implementations with this interface.
  * <p/>
- * This has already been done for the {@link V7TriggerListenerSupport}
+ * This has already been done for the {@link KrailTriggerListenerSupport}
  *
  * @author David Sowerby
  */
-public interface V7TriggerListener extends TriggerListener {
+public interface KrailTriggerListener extends TriggerListener {
     void setName(String triggerName);
 }

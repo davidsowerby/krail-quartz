@@ -14,7 +14,7 @@ package uk.q3c.krail.quartz.scheduler;
 
 import org.quartz.listeners.TriggerListenerSupport;
 
-public class V7TriggerListenerSupport extends TriggerListenerSupport implements V7TriggerListener {
+public class KrailTriggerListenerSupport extends TriggerListenerSupport implements KrailTriggerListener {
     private String name;
 
     @Override

@@ -15,10 +15,10 @@ package uk.q3c.krail.quartz.scheduler;
 import org.quartz.SchedulerException;
 import org.quartz.SchedulerFactory;
 
-public interface V7SchedulerFactory extends SchedulerFactory {
+public interface KrailSchedulerFactory extends SchedulerFactory {
 
     /**
-     * Creates a V7Schduler from the supplied configuration
+     * Creates a {@link KrailScheduler} from the supplied configuration
      *
      * @param configuration
      *
@@ -26,6 +26,6 @@ public interface V7SchedulerFactory extends SchedulerFactory {
      *
      * @throws SchedulerException
      */
-    V7Scheduler createScheduler(SchedulerConfiguration configuration) throws SchedulerException;
+    KrailScheduler createScheduler(SchedulerConfiguration configuration) throws SchedulerException;
 
 }

@@ -26,13 +26,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(MycilaJunitRunner.class)
 @GuiceContext({I18NModule.class, DefaultSchedulerModule.class, VaadinSessionScopeModule.class})
-public class V7SchedulerFactoryTest {
+public class KrailSchedulerFactoryTest {
 
     @Inject
-    V7SchedulerFactory factory;
+    KrailSchedulerFactory factory;
 
     @Inject
-    V7SchedulerFactory factory2;
+    KrailSchedulerFactory factory2;
 
     @Inject
     SchedulerProvider provider;
@@ -50,7 +50,7 @@ public class V7SchedulerFactoryTest {
 
         assertThat(s1).isEqualTo(s2)
                       .isEqualTo(s3);
-        assertThat(s1).isInstanceOf(V7Scheduler.class);
+        assertThat(s1).isInstanceOf(KrailScheduler.class);
     }
 
     @Test
@@ -59,9 +59,9 @@ public class V7SchedulerFactoryTest {
         // given
         SchedulerConfiguration config = new SchedulerConfiguration().name("first");
         // when
-        V7Scheduler s1 = factory.createScheduler(config);
+        KrailScheduler s1 = factory.createScheduler(config);
         // then
-        assertThat(s1).isInstanceOf(V7Scheduler.class);
+        assertThat(s1).isInstanceOf(KrailScheduler.class);
         assertThat(s1.getMetaData()
                      .getSchedulerName()).isEqualTo("first");
     }
@@ -72,17 +72,17 @@ public class V7SchedulerFactoryTest {
         // given
         SchedulerConfiguration config = new SchedulerConfiguration();
         // when
-        V7Scheduler s1 = factory.createScheduler(config);
+        KrailScheduler s1 = factory.createScheduler(config);
         // then
-        assertThat(s1).isInstanceOf(V7Scheduler.class);
+        assertThat(s1).isInstanceOf(KrailScheduler.class);
         assertThat(s1.getMetaData()
                      .getSchedulerName()).isEqualTo("QuartzScheduler");
 
         // when second scheduler created
         config.name("second instance");
-        V7Scheduler s2 = factory2.createScheduler(config);
+        KrailScheduler s2 = factory2.createScheduler(config);
         // then
-        assertThat(s2).isInstanceOf(V7Scheduler.class);
+        assertThat(s2).isInstanceOf(KrailScheduler.class);
         assertThat(s2.getMetaData()
                      .getSchedulerName()).isEqualTo("second instance");
         assertThat(s1).isNotEqualTo(s2);
