@@ -19,9 +19,10 @@ import com.vaadin.server.VaadinService;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import temp.TestI18NModule;
 import uk.q3c.krail.core.config.ApplicationConfigurationModule;
-import uk.q3c.krail.core.guice.vsscope.VaadinSessionScopeModule;
-import uk.q3c.krail.i18n.I18NModule;
+import uk.q3c.krail.core.user.status.UserStatus;
 import uk.q3c.krail.quartz.job.DefaultJobModule;
 import uk.q3c.krail.quartz.scheduler.DefaultSchedulerModule;
 import uk.q3c.krail.quartz.scheduler.KrailScheduler;
@@ -34,8 +35,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @RunWith(MycilaJunitRunner.class)
-@GuiceContext({I18NModule.class, DefaultSchedulerModule.class, ApplicationConfigurationModule.class,
-        DefaultJobModule.class, VaadinSessionScopeModule.class})
+@GuiceContext({ TestI18NModule.class,DefaultSchedulerModule.class, ApplicationConfigurationModule.class, DefaultJobModule.class})
 public class DefaultQuartzServiceTest {
 
     static File iniDir = new File("src/test/java");
@@ -44,6 +44,8 @@ public class DefaultQuartzServiceTest {
     DefaultQuartzService service;
     @Inject
     SchedulerProvider provider;
+    @Mock
+    UserStatus userStatus;
 
     @BeforeClass
     public static void setupClass() {
@@ -65,5 +67,6 @@ public class DefaultQuartzServiceTest {
         assertThat(scheduler.getMetaData()
                             .getSchedulerName()).isEqualTo("default");
     }
+
 
 }

@@ -15,14 +15,16 @@ package uk.q3c.krail.quartz.service;
 import com.google.inject.Inject;
 import com.mycila.testing.junit.MycilaJunitRunner;
 import com.mycila.testing.plugin.guice.GuiceContext;
+import com.vaadin.server.VaadinService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mock;
 import org.quartz.*;
 import org.quartz.listeners.BroadcastSchedulerListener;
+import temp.TestI18NModule;
 import uk.q3c.krail.core.config.ApplicationConfigurationModule;
 import uk.q3c.krail.core.guice.vsscope.VaadinSessionScopeModule;
-import uk.q3c.krail.i18n.I18NModule;
 import uk.q3c.krail.quartz.job.JobModuleBase;
 import uk.q3c.krail.quartz.scheduler.*;
 import uk.q3c.krail.quartz.service.DefaultQuartzServiceTest2.TestJobModule;
@@ -34,7 +36,7 @@ import static org.quartz.SimpleScheduleBuilder.simpleSchedule;
 import static org.quartz.TriggerBuilder.newTrigger;
 
 @RunWith(MycilaJunitRunner.class)
-@GuiceContext({I18NModule.class, DefaultSchedulerModule.class, ApplicationConfigurationModule.class,
+@GuiceContext({TestI18NModule.class, DefaultSchedulerModule.class, ApplicationConfigurationModule.class,
         TestSchedulerModule.class, TestJobModule.class, VaadinSessionScopeModule.class})
 public class DefaultQuartzServiceTest2 {
 
@@ -46,9 +48,12 @@ public class DefaultQuartzServiceTest2 {
     @Inject
     TestJobMonitor monitor;
 
+    @Mock
+    VaadinService vaadinService;
+
     @Before
     public void setup() {
-
+VaadinService.setCurrent(vaadinService);
     }
 
     @Test
@@ -132,7 +137,7 @@ public class DefaultQuartzServiceTest2 {
             simpleSchedule();
             TriggerBuilder<SimpleTrigger> triggerBuilder = newTrigger().startNow()
                                                                        .withSchedule(SimpleScheduleBuilder
-                                                                               .repeatSecondlyForTotalCount(5,  ));
+                                                                               .repeatSecondlyForTotalCount(5));
             addJob("test", jobBuilder, triggerBuilder);
             addJobListener("test", TestJobListener.class, jobKey);
         }
