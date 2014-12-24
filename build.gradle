@@ -14,41 +14,40 @@ apply plugin: 'java'
 apply plugin: 'maven'
 apply plugin: 'idea'
 
-version = '0.7.0'
-
-
+version = '0.7.2'
 
 
 repositories {
-
+    maven {
+        url "file:///" + System.getProperty("user.home") + "/localRepo"
+    }
     jcenter()
     mavenCentral()
 }
 
 
-
-project.ext.exportDir = System.getProperty("user.home") + "/temp/jars/" + project.name
-
-jar {
-    libsDirName = exportDir
-    println("jar exported to:  " + exportDir)
-}
-
-task writeNewPom << {
-    pom {
-        groupId = "uk.q3c.krail"
-        project {
-            inceptionYear '2014'
-            licenses {
-                license {
-                    name 'The Apache Software License, Version 2.0'
-                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    distribution 'repo'
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "file://localhost/" + System.getProperty("user.home") + "/localRepo")
+            pom {
+                groupId = "uk.q3c.krail"
+                project {
+                    inceptionYear '2014'
+                    licenses {
+                        license {
+                            name 'The Apache Software License, Version 2.0'
+                            url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                            distribution 'repo'
+                        }
+                    }
                 }
             }
         }
-    }.writeTo(exportDir + "/" + project.name + "-" + version + ".pom")
+    }
 }
+
+
 
 task sourcesJar(type: Jar, dependsOn: classes) {
     classifier = 'sources'
@@ -62,10 +61,7 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
     from javadoc.destinationDir
 }
 
-task publish(dependsOn: ['sourcesJar', 'javadocJar', 'jar', 'writeNewPom']) {
 
-
-}
 
 artifacts {
     archives sourcesJar
@@ -79,13 +75,14 @@ javadoc {
 
 dependencies {
     //Krail
-    compile 'uk.q3c.krail:krail:0.7+'
+    compile 'uk.q3c.krail:krail:0.7.5'
 
     //Quartz
 
     compile 'org.quartz-scheduler:quartz:2.2.1'
 
     //testing
+    testCompile 'uk.q3c.krail:krail-testUtil:1.0.1'
     testCompile 'com.mycila:mycila-guice:2.10.ga'
     testCompile 'com.mycila.testing.plugins:mycila-testing-guice:2.8'
     testCompile 'com.mycila.testing.plugins:mycila-testing-mockito:2.8'

@@ -19,13 +19,15 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
-import temp.TestI18NModule;
 import uk.q3c.krail.core.guice.vsscope.VaadinSessionScopeModule;
+import uk.q3c.krail.testutil.TestI18NModule;
+import uk.q3c.krail.testutil.TestUserOptionModule;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(MycilaJunitRunner.class)
-@GuiceContext({TestI18NModule.class, DefaultSchedulerModule.class, VaadinSessionScopeModule.class})
+@GuiceContext({TestI18NModule.class, TestUserOptionModule.class, DefaultSchedulerModule.class,
+        VaadinSessionScopeModule.class})
 public class KrailSchedulerFactoryTest {
 
     @Inject

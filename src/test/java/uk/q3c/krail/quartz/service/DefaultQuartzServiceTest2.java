@@ -22,13 +22,14 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.quartz.*;
 import org.quartz.listeners.BroadcastSchedulerListener;
-import temp.TestI18NModule;
 import uk.q3c.krail.core.config.ApplicationConfigurationModule;
 import uk.q3c.krail.core.guice.vsscope.VaadinSessionScopeModule;
 import uk.q3c.krail.quartz.job.JobModuleBase;
 import uk.q3c.krail.quartz.scheduler.*;
 import uk.q3c.krail.quartz.service.DefaultQuartzServiceTest2.TestJobModule;
 import uk.q3c.krail.quartz.service.DefaultQuartzServiceTest2.TestSchedulerModule;
+import uk.q3c.krail.testutil.TestI18NModule;
+import uk.q3c.krail.testutil.TestUserOptionModule;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.quartz.JobBuilder.newJob;
@@ -36,7 +37,8 @@ import static org.quartz.SimpleScheduleBuilder.simpleSchedule;
 import static org.quartz.TriggerBuilder.newTrigger;
 
 @RunWith(MycilaJunitRunner.class)
-@GuiceContext({TestI18NModule.class, DefaultSchedulerModule.class, ApplicationConfigurationModule.class,
+@GuiceContext({TestI18NModule.class, TestUserOptionModule.class, DefaultSchedulerModule.class,
+        ApplicationConfigurationModule.class,
         TestSchedulerModule.class, TestJobModule.class, VaadinSessionScopeModule.class})
 public class DefaultQuartzServiceTest2 {
 

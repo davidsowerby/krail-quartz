@@ -23,12 +23,13 @@ import org.junit.runner.RunWith;
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
 import org.quartz.impl.SchedulerRepository;
-import temp.TestI18NModule;
 import uk.q3c.krail.core.config.ApplicationConfiguration;
 import uk.q3c.krail.core.config.ApplicationConfigurationModule;
 import uk.q3c.krail.core.config.InheritingConfiguration;
 import uk.q3c.krail.core.guice.vsscope.VaadinSessionScopeModule;
 import uk.q3c.krail.i18n.Translate;
+import uk.q3c.krail.testutil.TestI18NModule;
+import uk.q3c.krail.testutil.TestUserOptionModule;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -37,8 +38,8 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(MycilaJunitRunner.class)
-@GuiceContext({TestI18NModule.class, ApplicationConfigurationModule.class, DefaultSchedulerModule.class,
-        VaadinSessionScopeModule.class})
+@GuiceContext({TestI18NModule.class, TestUserOptionModule.class, ApplicationConfigurationModule.class,
+        DefaultSchedulerModule.class, VaadinSessionScopeModule.class})
 public class SchedulerProviderTest {
 
     @Inject
@@ -179,6 +180,13 @@ public class SchedulerProviderTest {
 
     }
 
+    /**
+     * The result of this test may vary if there is a change to the hash algorithm as there was in Java 8 - it may
+     * cause
+     * the ordering to change, and therefore the item which becomes first after an item is removed
+     *
+     * @throws SchedulerException
+     */
     @Test
     public void removeTheDefault() throws SchedulerException {
 
@@ -198,7 +206,7 @@ public class SchedulerProviderTest {
         assertThat(provider.get()).isNotNull();
         assertThat(provider.get()).isNotEqualTo(s1);
         assertThat(provider.get()
-                           .getSchedulerName()).isEqualTo("second");
+                           .getSchedulerName()).isEqualTo("third");
     }
 
     @Test(expected = ProvisionException.class)

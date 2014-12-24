@@ -20,13 +20,14 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import temp.TestI18NModule;
 import uk.q3c.krail.core.config.ApplicationConfigurationModule;
 import uk.q3c.krail.core.user.status.UserStatus;
 import uk.q3c.krail.quartz.job.DefaultJobModule;
 import uk.q3c.krail.quartz.scheduler.DefaultSchedulerModule;
 import uk.q3c.krail.quartz.scheduler.KrailScheduler;
 import uk.q3c.krail.quartz.scheduler.SchedulerProvider;
+import uk.q3c.krail.testutil.TestI18NModule;
+import uk.q3c.krail.testutil.TestUserOptionModule;
 
 import java.io.File;
 
@@ -35,7 +36,8 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @RunWith(MycilaJunitRunner.class)
-@GuiceContext({ TestI18NModule.class,DefaultSchedulerModule.class, ApplicationConfigurationModule.class, DefaultJobModule.class})
+@GuiceContext({TestI18NModule.class, TestUserOptionModule.class, DefaultSchedulerModule.class,
+        ApplicationConfigurationModule.class, DefaultJobModule.class})
 public class DefaultQuartzServiceTest {
 
     static File iniDir = new File("src/test/java");

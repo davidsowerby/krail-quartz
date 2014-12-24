@@ -28,8 +28,8 @@ import uk.q3c.krail.i18n.Translate;
 public class KrailScheduler extends StdScheduler {
 
     private final Translate translate;
-    private I18NKey<?> displayDescriptionKey;
-    private I18NKey<?> displayNameKey;
+    private I18NKey displayDescriptionKey;
+    private I18NKey displayNameKey;
 
     public KrailScheduler(Translate translate, QuartzScheduler sched) {
         super(sched);

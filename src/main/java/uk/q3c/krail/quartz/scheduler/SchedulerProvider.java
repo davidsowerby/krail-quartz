@@ -31,7 +31,7 @@ import java.util.Iterator;
  */
 public class SchedulerProvider {
     private static Logger log = LoggerFactory.getLogger(SchedulerProvider.class);
-    private String defaultSchedulerName;
+    private String defaultSchedulerName = "DefaultQuartzScheduler";
 
     @Inject
     protected SchedulerProvider() {
