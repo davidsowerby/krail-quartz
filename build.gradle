@@ -75,14 +75,14 @@ javadoc {
 
 dependencies {
     //Krail
-    compile 'uk.q3c.krail:krail:0.7.5'
+    compile 'uk.q3c.krail:krail:0.7.6'
 
     //Quartz
 
     compile 'org.quartz-scheduler:quartz:2.2.1'
 
     //testing
-    testCompile 'uk.q3c.krail:krail-testUtil:1.0.1'
+    testCompile 'uk.q3c.krail:krail-testUtil:1.0.2'
     testCompile 'com.mycila:mycila-guice:2.10.ga'
     testCompile 'com.mycila.testing.plugins:mycila-testing-guice:2.8'
     testCompile 'com.mycila.testing.plugins:mycila-testing-mockito:2.8'

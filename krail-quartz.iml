@@ -33,7 +33,6 @@
     <orderEntry type="library" exported="" name="Gradle: org.apache.bval:bval-guice:0.5" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.google.inject.extensions:guice-multibindings:3.0" level="project" />
     <orderEntry type="library" exported="" name="Gradle: org.reflections:reflections:0.9.9-RC1" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: com.vaadin:vaadin-server:7.3.4" level="project" />
     <orderEntry type="library" exported="" name="Gradle: org.apache.shiro:shiro-web:1.2.1" level="project" />
     <orderEntry type="library" exported="" name="Gradle: org.apache.bval:bval-jsr303:0.5" level="project" />
     <orderEntry type="library" exported="" name="Gradle: commons-configuration:commons-configuration:1.10" level="project" />
@@ -53,7 +52,6 @@
     <orderEntry type="library" exported="" name="Gradle: org.javassist:javassist:3.16.1-GA" level="project" />
     <orderEntry type="library" exported="" name="Gradle: dom4j:dom4j:1.6.1" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.vaadin:vaadin-sass-compiler:0.9.10" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: com.vaadin:vaadin-shared:7.3.4" level="project" />
     <orderEntry type="library" exported="" name="Gradle: org.jsoup:jsoup:1.6.3" level="project" />
     <orderEntry type="library" exported="" name="Gradle: org.apache.bval:bval-core:0.5" level="project" />
     <orderEntry type="library" exported="" name="Gradle: commons-lang:commons-lang:2.6" level="project" />
@@ -84,7 +82,9 @@
     <orderEntry type="library" scope="TEST" name="Gradle: com.mycila:mycila-plugin:1.10" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.mycila:mycila-log:2.12" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.objenesis:objenesis:1.0" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: uk.q3c.krail:krail:0.7.5" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: uk.q3c.krail:krail-testUtil:1.0.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: uk.q3c.krail:krail:0.7.6" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.vaadin:vaadin-server:7.3.7" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.vaadin:vaadin-shared:7.3.7" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: uk.q3c.krail:krail-testUtil:1.0.2" level="project" />
   </component>
 </module>
