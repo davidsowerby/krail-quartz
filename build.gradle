@@ -14,7 +14,7 @@ apply plugin: 'java'
 apply plugin: 'maven'
 apply plugin: 'idea'
 
-version = '0.7.2'
+version = '0.7.3'
 
 
 repositories {
@@ -75,14 +75,14 @@ javadoc {
 
 dependencies {
     //Krail
-    compile 'uk.q3c.krail:krail:0.7.6'
+    compile 'uk.q3c.krail:krail:0.7.7'
 
     //Quartz
 
     compile 'org.quartz-scheduler:quartz:2.2.1'
 
     //testing
-    testCompile 'uk.q3c.krail:krail-testUtil:1.0.2'
+    testCompile 'uk.q3c.krail:krail-testUtil:1.0.3'
     testCompile 'com.mycila:mycila-guice:2.10.ga'
     testCompile 'com.mycila.testing.plugins:mycila-testing-guice:2.8'
     testCompile 'com.mycila.testing.plugins:mycila-testing-mockito:2.8'
