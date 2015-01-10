@@ -52,7 +52,7 @@ public abstract class JobModuleBase extends AbstractModule {
     protected abstract void addJobs();
 
     /**
-     * Add the job 'specification' by supplying a prepared jobBuilder and triggerBuilder. Do NOT invoke the build()
+     * Add the job 'specification' by supplying a prepared jobBuilder and triggerBuilder. Do NOT invoke the krail()
      * method of either - the idea is to leave the building until the {@link QuartzService} is started, in keeping with
      * the Guice recommendation to keep modules fast and side-effect free.
      * <p/>
