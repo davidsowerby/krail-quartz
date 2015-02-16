@@ -1,35 +1,25 @@
-### Release Notes for krail-quartz 0.7.5
+### Release Notes for krail-quartz 0.7.6
 
-This version removes the IDEA project files from Git
+This version adds gitattributes file, no functional changes
 
 #### Change log
 
--   [3](https://github.com/davidsowerby/krail-quartz/issues/3): Remove IDEA project files from git
 
 
 #### Dependency changes
 
-   compile dependency version changed to: krail:0.7.9
-   compile dependency version changed to: krail-testUtil:1.0.6
+   compile dependency version changed to: krail:0.8.0
+   compile dependency version changed to: krail-testUtil:1.0.7
 
 #### Detail
 
-Release notes and version.properties generated
-
----
-*Merge branch 'master' into develop*
+*Update version information*
 
 
 ---
-*Set version information*
+*gitattributes added*
 
-
----
-*Updated README files to conform to q3c-gradle format.  See davidsowerby/krail-master#315.*
-
-
----
-*Fix [3](https://github.com/davidsowerby/krail-quartz/issues/3) Removed IDEA project files from Git*
+To overcome Linux/Windows line ending issues
 
 
 ---
