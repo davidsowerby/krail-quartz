@@ -27,7 +27,7 @@ import uk.q3c.krail.quartz.scheduler.DefaultSchedulerModule;
 import uk.q3c.krail.quartz.scheduler.KrailScheduler;
 import uk.q3c.krail.quartz.scheduler.SchedulerProvider;
 import uk.q3c.krail.testutil.TestI18NModule;
-import uk.q3c.krail.testutil.TestUserOptionModule;
+import uk.q3c.krail.testutil.TestOptionModule;
 
 import java.io.File;
 
@@ -36,7 +36,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @RunWith(MycilaJunitRunner.class)
-@GuiceContext({TestI18NModule.class, TestUserOptionModule.class, DefaultSchedulerModule.class,
+@GuiceContext({TestI18NModule.class, TestOptionModule.class, DefaultSchedulerModule.class,
         ApplicationConfigurationModule.class, DefaultJobModule.class})
 public class DefaultQuartzServiceTest {
 
