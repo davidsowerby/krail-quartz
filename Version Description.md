@@ -1,1 +1,1 @@
-This version adds gitattributes file, no functional changes
+UserOption renamed Option, no functional changes
