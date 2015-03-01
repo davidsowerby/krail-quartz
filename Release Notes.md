@@ -1,6 +1,6 @@
-### Release Notes for krail-quartz 0.7.6
+### Release Notes for krail-quartz 0.7.7
 
-This version adds gitattributes file, no functional changes
+UserOption renamed Option, no functional changes
 
 #### Change log
 
@@ -8,18 +8,16 @@ This version adds gitattributes file, no functional changes
 
 #### Dependency changes
 
-   compile dependency version changed to: krail:0.8.0
-   compile dependency version changed to: krail-testUtil:1.0.7
+   compile dependency version changed to: krail:0.8.1
+   compile dependency version changed to: krail-testUtil:1.0.8
 
 #### Detail
 
-*Update version information*
+*Updated version information*
 
 
 ---
-*gitattributes added*
-
-To overcome Linux/Windows line ending issues
+[krail 330](https://github.com/*davidsowerby/krail/issues/330) rename UserOption to Option*
 
 
 ---
