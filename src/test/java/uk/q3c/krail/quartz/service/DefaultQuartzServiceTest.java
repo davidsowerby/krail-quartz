@@ -19,9 +19,7 @@ import com.vaadin.server.VaadinService;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import uk.q3c.krail.core.config.ApplicationConfigurationModule;
-import uk.q3c.krail.core.user.status.UserStatus;
 import uk.q3c.krail.quartz.job.DefaultJobModule;
 import uk.q3c.krail.quartz.scheduler.DefaultSchedulerModule;
 import uk.q3c.krail.quartz.scheduler.KrailScheduler;
@@ -46,8 +44,7 @@ public class DefaultQuartzServiceTest {
     DefaultQuartzService service;
     @Inject
     SchedulerProvider provider;
-    @Mock
-    UserStatus userStatus;
+
 
     @BeforeClass
     public static void setupClass() {
