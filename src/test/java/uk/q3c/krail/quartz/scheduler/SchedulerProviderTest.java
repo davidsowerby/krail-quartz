@@ -26,10 +26,12 @@ import org.quartz.impl.SchedulerRepository;
 import uk.q3c.krail.core.config.ApplicationConfiguration;
 import uk.q3c.krail.core.config.ApplicationConfigurationModule;
 import uk.q3c.krail.core.config.InheritingConfiguration;
+import uk.q3c.krail.core.eventbus.EventBusModule;
 import uk.q3c.krail.core.guice.vsscope.VaadinSessionScopeModule;
 import uk.q3c.krail.i18n.Translate;
 import uk.q3c.krail.testutil.TestI18NModule;
 import uk.q3c.krail.testutil.TestOptionModule;
+import uk.q3c.krail.testutil.TestUIScopeModule;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -38,8 +40,8 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(MycilaJunitRunner.class)
-@GuiceContext({TestI18NModule.class, TestOptionModule.class, ApplicationConfigurationModule.class,
-        DefaultSchedulerModule.class, VaadinSessionScopeModule.class})
+@GuiceContext({TestI18NModule.class, TestOptionModule.class, ApplicationConfigurationModule.class, DefaultSchedulerModule.class, VaadinSessionScopeModule
+        .class, EventBusModule.class, TestUIScopeModule.class})
 public class SchedulerProviderTest {
 
     @Inject
