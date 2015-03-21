@@ -1,1 +1,1 @@
-Minor changes to support the way Krail initialises Services, consolidate test utilities and introduced an Event Bus.  This library does not currently use the Event BUs.
+Dependency changes only
