@@ -1,18 +1,18 @@
-/.gradle
-/.idea
-/.settings
-/bin
-/build
-/gradle
-/logs
+.gradle
+.idea
+.settings
+bin
+build
+gradle
+logs
 
-/.krail-quartz.iml
+.krail-quartz.iml
 
 build.gradle~
 git.ignore~
 README.md~
 
-/.classpath
-/.project
-/.gradle
-/error-screenshots
+.classpath
+.project
+
+error-screenshots

@@ -1,1 +1,1 @@
-Dependency changes only
+Dependency changes and .gitignore updated
