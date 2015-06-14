@@ -8,8 +8,8 @@ Upgrade to Vaadin 7.4.6, Guice 4.0.  Minor change to build file for bintrayUploa
 
 #### Dependency changes
 
-   compile dependency version changed to: krail:0.9.4
-   compile dependency version changed to: krail-testUtil:1.0.13
+   compile dependency version changed to: krail:0.9.5
+   compile dependency version changed to: krail-testUtil:1.0.14
 
 #### Detail
 
