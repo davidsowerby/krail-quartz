@@ -32,6 +32,7 @@ import uk.q3c.krail.quartz.service.DefaultQuartzServiceTest2.TestJobModule;
 import uk.q3c.krail.quartz.service.DefaultQuartzServiceTest2.TestSchedulerModule;
 import uk.q3c.krail.testutil.TestI18NModule;
 import uk.q3c.krail.testutil.TestOptionModule;
+import uk.q3c.krail.testutil.TestPersistenceModule;
 import uk.q3c.krail.testutil.TestUIScopeModule;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -40,7 +41,7 @@ import static org.quartz.SimpleScheduleBuilder.simpleSchedule;
 import static org.quartz.TriggerBuilder.newTrigger;
 
 @RunWith(MycilaJunitRunner.class)
-@GuiceContext({TestI18NModule.class, TestOptionModule.class, DefaultSchedulerModule.class,
+@GuiceContext({TestI18NModule.class, TestOptionModule.class, TestPersistenceModule.class, DefaultSchedulerModule.class,
         ApplicationConfigurationModule.class, TestSchedulerModule.class, TestJobModule.class, ServiceModule.class, EventBusModule.class, TestUIScopeModule
         .class, VaadinSessionScopeModule.class})
 public class DefaultQuartzServiceTest2 {
