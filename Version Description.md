@@ -1,1 +1,1 @@
-Upgrade to Vaadin 7.4.6, Guice 4.0.  Minor change to build file for bintrayUpload
+Upgrade to Vaadin 7.5.3.  Changes to tests to support use of TestPersistenceModule
