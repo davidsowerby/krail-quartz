@@ -19,8 +19,9 @@ import org.quartz.JobListener;
 import org.quartz.SchedulerException;
 import org.quartz.SchedulerListener;
 import uk.q3c.krail.core.config.ApplicationConfigurationService;
-import uk.q3c.krail.core.services.AbstractServiceI18N;
+import uk.q3c.krail.core.services.AbstractService;
 import uk.q3c.krail.core.services.Dependency;
+import uk.q3c.krail.core.services.Service;
 import uk.q3c.krail.i18n.Translate;
 import uk.q3c.krail.quartz.job.JobEntry;
 import uk.q3c.krail.quartz.job.JobListenerEntry;
@@ -41,7 +42,7 @@ import java.util.Set;
  * @see SchedulerModuleBase
  * @see DefaultSchedulerModule
  */
-public class DefaultQuartzService extends AbstractServiceI18N implements QuartzService {
+public class DefaultQuartzService extends AbstractService implements QuartzService, Service {
 
     private final Set<SchedulerListenerEntry> schedulerListeners;
     // config only needed at the start
@@ -187,7 +188,7 @@ public class DefaultQuartzService extends AbstractServiceI18N implements QuartzS
 
     @Override
     public void doStop() throws Exception {
-        setStatus(Status.STOPPED);
+        setState(State.STOPPED);
     }
 
 }
