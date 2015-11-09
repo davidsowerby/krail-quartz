@@ -28,6 +28,7 @@ import uk.q3c.krail.core.config.ApplicationConfigurationModule;
 import uk.q3c.krail.core.config.InheritingConfiguration;
 import uk.q3c.krail.core.eventbus.EventBusModule;
 import uk.q3c.krail.core.guice.vsscope.VaadinSessionScopeModule;
+import uk.q3c.krail.core.services.ServicesModule;
 import uk.q3c.krail.i18n.Translate;
 import uk.q3c.krail.testutil.TestI18NModule;
 import uk.q3c.krail.testutil.TestOptionModule;
@@ -41,7 +42,8 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(MycilaJunitRunner.class)
-@GuiceContext({TestI18NModule.class, TestOptionModule.class, TestPersistenceModule.class, ApplicationConfigurationModule.class, DefaultSchedulerModule.class,
+@GuiceContext({ServicesModule.class, TestI18NModule.class, TestOptionModule.class, TestPersistenceModule.class, ApplicationConfigurationModule.class,
+        DefaultSchedulerModule.class,
         VaadinSessionScopeModule
         .class, EventBusModule.class, TestUIScopeModule.class})
 public class SchedulerProviderTest {

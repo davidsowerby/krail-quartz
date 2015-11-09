@@ -25,7 +25,8 @@ import org.quartz.listeners.BroadcastSchedulerListener;
 import uk.q3c.krail.core.config.ApplicationConfigurationModule;
 import uk.q3c.krail.core.eventbus.EventBusModule;
 import uk.q3c.krail.core.guice.vsscope.VaadinSessionScopeModule;
-import uk.q3c.krail.core.services.ServiceModule;
+import uk.q3c.krail.core.services.ServicesGraph;
+import uk.q3c.krail.core.services.ServicesModule;
 import uk.q3c.krail.quartz.job.JobModuleBase;
 import uk.q3c.krail.quartz.scheduler.*;
 import uk.q3c.krail.quartz.service.DefaultQuartzServiceTest2.TestJobModule;
@@ -41,9 +42,8 @@ import static org.quartz.SimpleScheduleBuilder.simpleSchedule;
 import static org.quartz.TriggerBuilder.newTrigger;
 
 @RunWith(MycilaJunitRunner.class)
-@GuiceContext({TestI18NModule.class, TestOptionModule.class, TestPersistenceModule.class, DefaultSchedulerModule.class,
-        ApplicationConfigurationModule.class, TestSchedulerModule.class, TestJobModule.class, ServiceModule.class, EventBusModule.class, TestUIScopeModule
-        .class, VaadinSessionScopeModule.class})
+@GuiceContext({TestI18NModule.class, TestOptionModule.class, TestPersistenceModule.class, DefaultSchedulerModule.class, ApplicationConfigurationModule.class,
+        TestSchedulerModule.class, TestJobModule.class, ServicesModule.class, EventBusModule.class, TestUIScopeModule.class, VaadinSessionScopeModule.class})
 public class DefaultQuartzServiceTest2 {
 
     static JobKey jobKey = new JobKey("wiggly", "blob");
@@ -53,13 +53,16 @@ public class DefaultQuartzServiceTest2 {
     SchedulerProvider provider;
     @Inject
     TestJobMonitor monitor;
+    @Inject
+    ServicesGraph servicesGraph;
 
     @Mock
     VaadinService vaadinService;
 
     @Before
     public void setup() {
-VaadinService.setCurrent(vaadinService);
+        VaadinService.setCurrent(vaadinService);
+        servicesGraph.addService(service.getServiceKey());
     }
 
     @Test
@@ -142,8 +145,7 @@ VaadinService.setCurrent(vaadinService);
                                             .withIdentity(jobKey);
             simpleSchedule();
             TriggerBuilder<SimpleTrigger> triggerBuilder = newTrigger().startNow()
-                                                                       .withSchedule(SimpleScheduleBuilder
-                                                                               .repeatSecondlyForTotalCount(5));
+                                                                       .withSchedule(SimpleScheduleBuilder.repeatSecondlyForTotalCount(5));
             addJob("test", jobBuilder, triggerBuilder);
             addJobListener("test", TestJobListener.class, jobKey);
         }

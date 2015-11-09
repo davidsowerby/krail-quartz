@@ -21,8 +21,10 @@ import org.quartz.SchedulerListener;
 import uk.q3c.krail.core.config.ApplicationConfigurationService;
 import uk.q3c.krail.core.services.AbstractService;
 import uk.q3c.krail.core.services.Dependency;
-import uk.q3c.krail.core.services.Service;
+import uk.q3c.krail.core.services.ServicesController;
+import uk.q3c.krail.i18n.I18NKey;
 import uk.q3c.krail.i18n.Translate;
+import uk.q3c.krail.quartz.i18n.LabelKey;
 import uk.q3c.krail.quartz.job.JobEntry;
 import uk.q3c.krail.quartz.job.JobListenerEntry;
 import uk.q3c.krail.quartz.job.KrailJobFactory;
@@ -42,11 +44,11 @@ import java.util.Set;
  * @see SchedulerModuleBase
  * @see DefaultSchedulerModule
  */
-public class DefaultQuartzService extends AbstractService implements QuartzService, Service {
+public class DefaultQuartzService extends AbstractService implements QuartzService {
 
     private final Set<SchedulerListenerEntry> schedulerListeners;
     // config only needed at the start
-    @Dependency(stopOnStop = false)
+    @Dependency(always = false)
     private final ApplicationConfigurationService applicationConfigurationService;
 
     private final Map<String, SchedulerConfiguration> schedulerConfigurations;
@@ -63,9 +65,9 @@ public class DefaultQuartzService extends AbstractService implements QuartzServi
                                 Set<SchedulerListenerEntry> schedulerListeners,
                                 Set<TriggerListenerEntry> triggerListeners, Provider<KrailSchedulerFactory>
             factoryProvider, ApplicationConfigurationService applicationConfigurationService,
-                                SchedulerProvider schedulerProvider, Injector injector, KrailJobFactory jobFactory,
-                                Set<JobEntry> jobs, Set<JobListenerEntry> jobListeners) {
-        super(translate);
+                                SchedulerProvider schedulerProvider, Injector injector, KrailJobFactory jobFactory, Set<JobEntry> jobs, Set<JobListenerEntry>
+                                            jobListeners, ServicesController servicesController) {
+        super(translate, servicesController);
         this.schedulerConfigurations = schedulerConfigurations;
         this.schedulerListeners = schedulerListeners;
         this.factoryProvider = factoryProvider;
@@ -187,8 +189,12 @@ public class DefaultQuartzService extends AbstractService implements QuartzServi
     }
 
     @Override
-    public void doStop() throws Exception {
-        setState(State.STOPPED);
+    public void doStop() {
     }
 
+
+    @Override
+    public I18NKey getNameKey() {
+        return LabelKey.Quartz_Service;
+    }
 }

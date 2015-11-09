@@ -22,7 +22,8 @@ import org.junit.runner.RunWith;
 import uk.q3c.krail.core.config.ApplicationConfigurationModule;
 import uk.q3c.krail.core.eventbus.EventBusModule;
 import uk.q3c.krail.core.guice.vsscope.VaadinSessionScopeModule;
-import uk.q3c.krail.core.services.ServiceModule;
+import uk.q3c.krail.core.services.ServicesGraph;
+import uk.q3c.krail.core.services.ServicesModule;
 import uk.q3c.krail.quartz.job.DefaultJobModule;
 import uk.q3c.krail.quartz.scheduler.DefaultSchedulerModule;
 import uk.q3c.krail.quartz.scheduler.KrailScheduler;
@@ -41,7 +42,7 @@ import static org.mockito.Mockito.when;
 @RunWith(MycilaJunitRunner.class)
 @GuiceContext({TestI18NModule.class, TestOptionModule.class, TestPersistenceModule.class, DefaultSchedulerModule.class, ApplicationConfigurationModule.class,
         DefaultJobModule.class,
-        ServiceModule.class, EventBusModule.class, TestUIScopeModule.class, VaadinSessionScopeModule.class})
+        ServicesModule.class, EventBusModule.class, TestUIScopeModule.class, VaadinSessionScopeModule.class})
 public class DefaultQuartzServiceTest {
 
     static File iniDir = new File("src/test/java");
@@ -50,6 +51,8 @@ public class DefaultQuartzServiceTest {
     DefaultQuartzService service;
     @Inject
     SchedulerProvider provider;
+    @Inject
+    ServicesGraph servicesGraph;
 
 
     @BeforeClass
@@ -63,7 +66,7 @@ public class DefaultQuartzServiceTest {
     public void defaultSingleScheduler() throws Exception {
 
         // given
-
+        servicesGraph.addService(service.getServiceKey());
         // when
         service.start();
         // then
