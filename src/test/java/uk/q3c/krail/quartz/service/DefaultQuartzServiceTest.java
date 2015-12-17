@@ -22,7 +22,7 @@ import org.junit.runner.RunWith;
 import uk.q3c.krail.core.config.ApplicationConfigurationModule;
 import uk.q3c.krail.core.eventbus.EventBusModule;
 import uk.q3c.krail.core.guice.vsscope.VaadinSessionScopeModule;
-import uk.q3c.krail.core.services.ServicesGraph;
+import uk.q3c.krail.core.services.ServicesModel;
 import uk.q3c.krail.core.services.ServicesModule;
 import uk.q3c.krail.quartz.job.DefaultJobModule;
 import uk.q3c.krail.quartz.scheduler.DefaultSchedulerModule;
@@ -52,7 +52,7 @@ public class DefaultQuartzServiceTest {
     @Inject
     SchedulerProvider provider;
     @Inject
-    ServicesGraph servicesGraph;
+    ServicesModel servicesModel;
 
 
     @BeforeClass
@@ -66,7 +66,7 @@ public class DefaultQuartzServiceTest {
     public void defaultSingleScheduler() throws Exception {
 
         // given
-        servicesGraph.addService(service.getServiceKey());
+        servicesModel.addService(service.getServiceKey());
         // when
         service.start();
         // then

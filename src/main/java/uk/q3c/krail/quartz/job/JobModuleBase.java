@@ -61,7 +61,7 @@ public abstract class JobModuleBase extends AbstractModule {
      * @param jobBuilder
      * @param triggerBuilder
      *
-     * @see https://code.google.com/p/google-guice/wiki/ModulesShouldBeFastAndSideEffectFree
+     * see https://code.google.com/p/google-guice/wiki/ModulesShouldBeFastAndSideEffectFree
      */
     protected void addJob(String schedulerName, JobBuilder jobBuilder, TriggerBuilder<? extends Trigger>
             triggerBuilder) {
