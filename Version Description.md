@@ -1,1 +1,1 @@
-Upgrade to Vaadin 7.5.3.  Changes to tests to support use of TestPersistenceModule
+Reflect changes to Service interface and model made in Krail core
