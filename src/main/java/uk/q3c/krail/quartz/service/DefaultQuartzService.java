@@ -23,7 +23,6 @@ import uk.q3c.krail.core.eventbus.GlobalBusProvider;
 import uk.q3c.krail.core.services.AbstractService;
 import uk.q3c.krail.core.services.Dependency;
 import uk.q3c.krail.core.services.RelatedServicesExecutor;
-import uk.q3c.krail.core.services.ServicesModel;
 import uk.q3c.krail.i18n.I18NKey;
 import uk.q3c.krail.i18n.Translate;
 import uk.q3c.krail.quartz.i18n.LabelKey;
@@ -68,9 +67,9 @@ public class DefaultQuartzService extends AbstractService implements QuartzServi
                                 Set<TriggerListenerEntry> triggerListeners, Provider<KrailSchedulerFactory>
             factoryProvider, ApplicationConfigurationService applicationConfigurationService,
                                 SchedulerProvider schedulerProvider, Injector injector, KrailJobFactory jobFactory, Set<JobEntry> jobs, Set<JobListenerEntry>
-                                            jobListeners, ServicesModel servicesModel, GlobalBusProvider globalBusProvider, RelatedServicesExecutor
+                                            jobListeners, GlobalBusProvider globalBusProvider, RelatedServicesExecutor
                                             servicesExecutor) {
-        super(translate, servicesModel, globalBusProvider, servicesExecutor);
+        super(translate, globalBusProvider, servicesExecutor);
         this.schedulerConfigurations = schedulerConfigurations;
         this.schedulerListeners = schedulerListeners;
         this.factoryProvider = factoryProvider;
