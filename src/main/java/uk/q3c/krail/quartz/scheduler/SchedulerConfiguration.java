@@ -1,14 +1,14 @@
 /*
- * Copyright (C) 2013 David Sowerby
- * 
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
- * the License. You may obtain a copy of the License at
- * 
- * http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations under the License.
+ *
+ *  * Copyright (c) 2016. David Sowerby
+ *  *
+ *  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+ *  * the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+ *  *
+ *  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ *  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  * specific language governing permissions and limitations under the License.
+ *
  */
 package uk.q3c.krail.quartz.scheduler;
 
@@ -30,10 +30,10 @@ import java.util.Properties;
  * </ol>
  * The 2nd and 3rd options do not need to exist. If they do, they will each override the property values of the
  * preceding methods, where properties with the same key exist in more than one source.
- * <p/>
+ * <p>
  * The logic for combining these sources is actually in the {@link DefaultKrailSchedulerFactory}, and invoked only when
  * services are being started. This helps to avoid having conditional logic in the Guice modules.
- * <p/>
+ * <p>
  * Sets the org.quartz.threadPool.threadCount to 1 as a default, as without it, the creation of a Scheduler will fail
  *
  * @author David Sowerby
@@ -68,7 +68,6 @@ public class SchedulerConfiguration {
      * scheduler itself.
      *
      * @param instanceName
-     *
      * @return
      */
     public SchedulerConfiguration name(String instanceName) {
@@ -77,8 +76,7 @@ public class SchedulerConfiguration {
     }
 
     public String getName() {
-        return properties.getProperty(StdSchedulerFactory.PROP_SCHED_INSTANCE_NAME)
-                         .toString();
+        return properties.getProperty(StdSchedulerFactory.PROP_SCHED_INSTANCE_NAME);
     }
 
     /**
@@ -86,7 +84,6 @@ public class SchedulerConfiguration {
      * class javadoc). The path is assumed to be in from ResourceUtils#configurationDirectory()
      *
      * @param filename
-     *
      * @return
      */
     public SchedulerConfiguration propertyFileName(String filename) {
@@ -100,7 +97,6 @@ public class SchedulerConfiguration {
      * ResourceUtils#configurationDirectory()
      *
      * @param filename
-     *
      * @return
      */
     public SchedulerConfiguration useConfigSection(String sectionName) {
@@ -121,7 +117,6 @@ public class SchedulerConfiguration {
      * service, but not started.
      *
      * @param autoStart
-     *
      * @return
      */
     public SchedulerConfiguration autoStart(boolean autoStart) {
