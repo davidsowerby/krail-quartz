@@ -1,6 +1,6 @@
-### Release Notes for krail-quartz 0.7.14
+### Release Notes for krail-quartz 0.7.15
 
-Reflect changes to Service interface and model made in Krail core
+Build file renamed
 
 #### Change log
 
@@ -8,26 +8,49 @@ Reflect changes to Service interface and model made in Krail core
 
 #### Dependency changes
 
-   compile dependency version changed to: krail:0.9.7
-   compile dependency version changed to: krail-testUtil:1.0.16
+   compile dependency version changed to: krail:0.9.8
 
 #### Detail
 
-*Updated version and version description*
+*Release notes and version.properties generated*
 
 
 ---
-[krail 480](https://github.com/*davidsowerby/krail/issues/480) Change to Services*
-
-Services and tests updated
+*Version files updated*
 
 
 ---
-*see [krail 240](https://github.com/davidsowerby/krail/issues/240) Services redesigned*
+*[krail-master 36](https://github.com/davidsowerby/krail-master/issues/36) rename build file*
+
+reverted to 'build.gradle' to enable Travis
 
 
 ---
-*See [krail 468](https://github.com/davidsowerby/krail/issues/468) Merged AbstractServiceI18N and AbstractService*
+*[krail 499](https://github.com/davidsowerby/krail/issues/499) krail-testUtil merged back into core*
+
+
+---
+*See [krail 508](https://github.com/davidsowerby/krail/issues/508) restructured packages*
+
+
+---
+*[krail 340](https://github.com/davidsowerby/krail/issues/340) FindBugs analysis complete*
+
+
+---
+*[krail 417](https://github.com/davidsowerby/krail/issues/417) ApplicationConfiguration as an interface*
+
+
+---
+*Changes to Service related to [krail 244](https://github.com/davidsowerby/krail/issues/244)*
+
+
+---
+*using MockService based on AbstractService, Executor tests green*
+
+
+---
+*ResourceUtils changed, see [krail 89](https://github.com/davidsowerby/krail/issues/89)*
 
 
 ---
