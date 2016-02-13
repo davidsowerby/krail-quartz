@@ -19,13 +19,13 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
+import testutil.TestI18NModule;
+import testutil.TestOptionModule;
+import testutil.TestPersistenceModule;
+import testutil.TestUIScopeModule;
 import uk.q3c.krail.core.config.ApplicationConfigurationModule;
 import uk.q3c.krail.core.eventbus.EventBusModule;
 import uk.q3c.krail.core.guice.vsscope.VaadinSessionScopeModule;
-import uk.q3c.krail.core.persist.common.option.testutil.TestI18NModule;
-import uk.q3c.krail.core.persist.common.option.testutil.TestOptionModule;
-import uk.q3c.krail.core.persist.common.option.testutil.TestPersistenceModule;
-import uk.q3c.krail.core.persist.common.option.testutil.TestUIScopeModule;
 import uk.q3c.krail.core.services.ServicesModule;
 import uk.q3c.krail.util.UtilsModule;
 
