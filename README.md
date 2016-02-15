@@ -1,5 +1,10 @@
 #krail-quartz
 
+![License](http://img.shields.io/:license-apache-blue.svg)
+[![Gitter](https://badges.gitter.im/davidsowerby/krail.svg)](https://gitter.im/davidsowerby/krail?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+[![Build Status](https://travis-ci.org/davidsowerby/krail-quartz.svg?branch=master)](https://travis-ci.org/davidsowerby/krail-quartz)
+[![Coverage Status](https://coveralls.io/repos/github/davidsowerby/krail-quartz/badge.svg?branch=master)](https://coveralls.io/github/davidsowerby/krail-quartz?branch=master)
+
 Quartz module for [Krail](https://github.com/davidsowerby/krail) (previously known as V7), which provides a framework for rapid Java web development by combining Vaadin, Guice, Apache Shiro, Apache Commons Configuration and others.
 
 This module is an integration wrapper around Quartz Scheduler to enable it to plug in to Krail
