@@ -2,11 +2,11 @@
 .idea
 .settings
 bin
-build
-gradle
+build/*
+
 logs
 
-.krail-quartz.iml
+krail-quartz.iml
 
 build.gradle~
 git.ignore~
@@ -16,3 +16,4 @@ README.md~
 .project
 
 error-screenshots
+.gitignore~
