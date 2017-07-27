@@ -17,9 +17,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.5'
         classpath 'commons-io:commons-io:2.4'
-        classpath 'uk.q3c:q3c-gradle:0.7.4'
         classpath 'com.bmuschko:gradle-docker-plugin:2.0.2'
     }
 }
@@ -28,17 +26,14 @@ plugins {
     id 'groovy'
     id 'jacoco'
     id 'project-report'
-    id 'com.github.kt3k.coveralls' version '2.4.0x'
 }
 
-apply plugin: 'com.jfrog.bintray'
 apply plugin: 'maven'
 apply plugin: 'maven-publish'
 apply plugin: 'java'
 apply plugin: 'project-report'
 apply plugin: 'eclipse-wtp'
 apply plugin: 'idea'
-apply plugin: 'q3c-release'
 
 //lookup version from the file produced by the release process
 //version = versionFromFile(project.projectDir)
@@ -79,38 +74,8 @@ dependencies {
     testCompile 'org.mockito:mockito-all:1.10.19'
 }
 
-bintray {
-    dryRun = false
-}
 
 
-jacocoTestReport.reports.xml.enabled = true
-
-
-publishing {
-    publications {
-        mavenStuff(MavenPublication) {
-            from components.java
-
-            artifact sourcesJar {
-                classifier "sources"
-            }
-
-            artifact javadocJar {
-                classifier "javadoc"
-            }
-        }
-    }
-}
-task sourcesJar(type: Jar, dependsOn: classes) {
-    classifier = 'sources'
-    from sourceSets.main.allSource
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
 
 idea {
     module {
@@ -119,76 +84,4 @@ idea {
     }
 }
 
-artifacts {
-    archives sourcesJar
-    archives javadocJar
-}
 
-javadoc {
-    failOnError = false
-}
-
-task verifyRelease(type: uk.q3c.gradle.VerificationTask) {
-
-}
-
-task prepareRelease(type: uk.q3c.gradle.PrepareReleaseTask) {
-
-}
-
-task release(type: uk.q3c.gradle.ReleaseTask) {
-
-}
-
-bintray {
-    user = 'dsowerby'
-    key = getKeyForBintray()
-
-    publications = ['mavenStuff'] //When uploading Maven-based publication files
-    dryRun = false  //project.ext.bintrayDryRun //Whether to run this as dry-run, without deploying
-    publish = true //If version should be auto published after an upload
-    pkg {
-        repo = 'maven'
-//        userOrg = 'myorg' //An optional organization name when the repo belongs to one of the user's orgs
-        name = project.name
-        desc = project.description
-        websiteUrl = 'https://github.com/davidsowerby/' + project.name
-        issueTrackerUrl = websiteUrl + '/issues'
-        vcsUrl = websiteUrl + '.git'
-        licenses = ['Apache-2.0']
-        labels = ['krail', 'Quartz']
-        publicDownloadNumbers = true
-        //Optional version descriptor
-        version {
-            name = project.version
-            desc = project.ext.versionDescription
-            released = project.ext.releaseDate
-            //'optional, date of the version release' //2 possible values: date in the format of 'yyyy-MM-dd'T'HH:mm:ss.SSSZZ' OR a java.util.Date instance
-            mavenCentralSync {
-                sync = false //Optional (true by default). Determines whether to sync the version to Maven Central.
-            }
-        }
-    }
-}
-
-def versionFromFile(File projectRoot) {
-    def Properties props = new Properties()
-    def propFile = new File(projectRoot, 'version.properties')
-    if (propFile.canRead()) {
-        props.load(new FileInputStream(propFile))
-    }
-    String key = "CURRENT_VERSION"
-    println(projectRoot.getName() + ": version is " + props[key])
-    props[key]
-}
-//Need to identify whether platform has the Bintray key (Travis etc will not)
-def getKeyForBintray() {
-    def keyValue = System.getenv("BINTRAY")
-    if (keyValue == null) {
-        println 'returning no bintray key'
-        return 'no bintray key'
-    } else {
-        println 'returning bintray key: '
-        return bintrayKey
-    }
-}
