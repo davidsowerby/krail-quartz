@@ -66,7 +66,9 @@ dependencies {
     testCompile 'org.mockito:mockito-all:1.10.19'
 }
 
-
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.0.1'
+}
 
 
 idea {
