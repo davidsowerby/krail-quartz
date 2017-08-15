@@ -19,30 +19,30 @@ import com.vaadin.server.VaadinService;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import uk.q3c.krail.core.config.ApplicationConfigurationModule;
+import uk.q3c.krail.config.bind.ApplicationConfigurationModule;
 import uk.q3c.krail.core.eventbus.EventBusModule;
 import uk.q3c.krail.core.guice.vsscope.VaadinSessionScopeModule;
 import uk.q3c.krail.core.services.ServicesModel;
 import uk.q3c.krail.core.services.ServicesModule;
+import uk.q3c.krail.i18n.test.TestI18NModule;
+import uk.q3c.krail.option.test.TestOptionModule;
 import uk.q3c.krail.quartz.job.DefaultJobModule;
 import uk.q3c.krail.quartz.scheduler.DefaultSchedulerModule;
 import uk.q3c.krail.quartz.scheduler.KrailScheduler;
 import uk.q3c.krail.quartz.scheduler.SchedulerProvider;
 import uk.q3c.krail.testutil.guice.uiscope.TestUIScopeModule;
-import uk.q3c.krail.testutil.i18n.TestI18NModule;
-import uk.q3c.krail.testutil.option.TestOptionModule;
 import uk.q3c.krail.testutil.persist.TestPersistenceModule;
 import uk.q3c.krail.util.UtilsModule;
+import uk.q3c.util.UtilModule;
 
 import java.io.File;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.assertj.core.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 @RunWith(MycilaJunitRunner.class)
 @GuiceContext({TestI18NModule.class, TestOptionModule.class, TestPersistenceModule.class, DefaultSchedulerModule.class, ApplicationConfigurationModule.class,
-        DefaultJobModule.class, ServicesModule.class, EventBusModule.class, TestUIScopeModule.class, VaadinSessionScopeModule.class, UtilsModule.class})
+        DefaultJobModule.class, UtilModule.class, ServicesModule.class, EventBusModule.class, TestUIScopeModule.class, VaadinSessionScopeModule.class, UtilsModule.class})
 public class DefaultQuartzServiceTest {
 
     static File iniDir = new File("src/test/java");

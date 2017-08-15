@@ -23,9 +23,9 @@ import org.quartz.core.QuartzSchedulerResources;
 import org.quartz.impl.StdSchedulerFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import uk.q3c.krail.core.config.ApplicationConfiguration;
-import uk.q3c.krail.core.config.InheritingConfiguration;
-import uk.q3c.krail.core.i18n.Translate;
+import uk.q3c.krail.config.ApplicationConfiguration;
+import uk.q3c.krail.config.config.InheritingConfiguration;
+import uk.q3c.krail.i18n.Translate;
 import uk.q3c.krail.quartz.service.QuartzService;
 
 import java.util.Properties;

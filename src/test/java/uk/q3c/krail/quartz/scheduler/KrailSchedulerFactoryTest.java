@@ -19,21 +19,22 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
-import uk.q3c.krail.core.config.ApplicationConfigurationModule;
+import uk.q3c.krail.config.bind.ApplicationConfigurationModule;
 import uk.q3c.krail.core.eventbus.EventBusModule;
 import uk.q3c.krail.core.guice.vsscope.VaadinSessionScopeModule;
 import uk.q3c.krail.core.services.ServicesModule;
+import uk.q3c.krail.i18n.test.TestI18NModule;
+import uk.q3c.krail.option.test.TestOptionModule;
 import uk.q3c.krail.testutil.guice.uiscope.TestUIScopeModule;
-import uk.q3c.krail.testutil.i18n.TestI18NModule;
-import uk.q3c.krail.testutil.option.TestOptionModule;
 import uk.q3c.krail.testutil.persist.TestPersistenceModule;
 import uk.q3c.krail.util.UtilsModule;
+import uk.q3c.util.UtilModule;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.*;
 
 @RunWith(MycilaJunitRunner.class)
 @GuiceContext({TestI18NModule.class, TestOptionModule.class, TestPersistenceModule.class, DefaultSchedulerModule.class, VaadinSessionScopeModule.class,
-        EventBusModule.class, ApplicationConfigurationModule.class, TestUIScopeModule.class, ServicesModule.class, UtilsModule.class})
+        EventBusModule.class, UtilModule.class, ApplicationConfigurationModule.class, TestUIScopeModule.class, ServicesModule.class, UtilsModule.class})
 public class KrailSchedulerFactoryTest {
 
     @Inject

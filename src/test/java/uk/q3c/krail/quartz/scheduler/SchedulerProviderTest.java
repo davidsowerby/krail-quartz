@@ -23,28 +23,29 @@ import org.junit.runner.RunWith;
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
 import org.quartz.impl.SchedulerRepository;
-import uk.q3c.krail.core.config.ApplicationConfiguration;
-import uk.q3c.krail.core.config.ApplicationConfigurationModule;
-import uk.q3c.krail.core.config.InheritingConfiguration;
+import uk.q3c.krail.config.ApplicationConfiguration;
+import uk.q3c.krail.config.bind.ApplicationConfigurationModule;
+import uk.q3c.krail.config.config.InheritingConfiguration;
 import uk.q3c.krail.core.eventbus.EventBusModule;
 import uk.q3c.krail.core.guice.vsscope.VaadinSessionScopeModule;
-import uk.q3c.krail.core.i18n.Translate;
 import uk.q3c.krail.core.services.ServicesModule;
+import uk.q3c.krail.i18n.Translate;
+import uk.q3c.krail.i18n.test.TestI18NModule;
+import uk.q3c.krail.option.test.TestOptionModule;
 import uk.q3c.krail.testutil.guice.uiscope.TestUIScopeModule;
-import uk.q3c.krail.testutil.i18n.TestI18NModule;
-import uk.q3c.krail.testutil.option.TestOptionModule;
 import uk.q3c.krail.testutil.persist.TestPersistenceModule;
 import uk.q3c.krail.util.UtilsModule;
+import uk.q3c.util.UtilModule;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.*;
 
 @RunWith(MycilaJunitRunner.class)
 @GuiceContext({ServicesModule.class, TestI18NModule.class, TestOptionModule.class, TestPersistenceModule.class, ApplicationConfigurationModule.class,
-        DefaultSchedulerModule.class, VaadinSessionScopeModule.class, EventBusModule.class, TestUIScopeModule.class, UtilsModule.class})
+        DefaultSchedulerModule.class, UtilModule.class, VaadinSessionScopeModule.class, EventBusModule.class, TestUIScopeModule.class, UtilsModule.class})
 public class SchedulerProviderTest {
 
     @Inject

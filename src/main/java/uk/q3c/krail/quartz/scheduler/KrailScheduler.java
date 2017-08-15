@@ -14,8 +14,8 @@ package uk.q3c.krail.quartz.scheduler;
 
 import org.quartz.core.QuartzScheduler;
 import org.quartz.impl.StdScheduler;
-import uk.q3c.krail.core.i18n.I18NKey;
-import uk.q3c.krail.core.i18n.Translate;
+import uk.q3c.krail.i18n.I18NKey;
+import uk.q3c.krail.i18n.Translate;
 
 /**
  * Functionally the same as the Quartz {@link StdScheduler}, but adds I18N attributes for display name and display
