@@ -55,7 +55,7 @@ repositories {
 
 dependencies {
     //krail
-    compile 'uk.q3c.krail:krail:0.9.10.9'
+    compile 'uk.q3c.krail:krail:0.9.10.10'
     //Quartz
     compile 'org.quartz-scheduler:quartz:2.2.1'
 
