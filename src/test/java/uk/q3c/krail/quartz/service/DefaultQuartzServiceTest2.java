@@ -25,14 +25,14 @@ import org.quartz.listeners.BroadcastSchedulerListener;
 import uk.q3c.krail.config.bind.ApplicationConfigurationModule;
 import uk.q3c.krail.core.eventbus.EventBusModule;
 import uk.q3c.krail.core.guice.vsscope.VaadinSessionScopeModule;
-import uk.q3c.krail.core.services.ServicesModel;
-import uk.q3c.krail.core.services.ServicesModule;
 import uk.q3c.krail.i18n.test.TestI18NModule;
 import uk.q3c.krail.option.test.TestOptionModule;
 import uk.q3c.krail.quartz.job.JobModuleBase;
 import uk.q3c.krail.quartz.scheduler.*;
 import uk.q3c.krail.quartz.service.DefaultQuartzServiceTest2.TestJobModule;
 import uk.q3c.krail.quartz.service.DefaultQuartzServiceTest2.TestSchedulerModule;
+import uk.q3c.krail.service.ServiceModel;
+import uk.q3c.krail.service.bind.ServicesModule;
 import uk.q3c.krail.testutil.guice.uiscope.TestUIScopeModule;
 import uk.q3c.krail.testutil.persist.TestPersistenceModule;
 import uk.q3c.krail.util.UtilsModule;
@@ -57,7 +57,7 @@ public class DefaultQuartzServiceTest2 {
     @Inject
     TestJobMonitor monitor;
     @Inject
-    ServicesModel servicesModel;
+    ServiceModel servicesModel;
 
     @Mock
     VaadinService vaadinService;

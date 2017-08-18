@@ -22,14 +22,14 @@ import org.junit.runner.RunWith;
 import uk.q3c.krail.config.bind.ApplicationConfigurationModule;
 import uk.q3c.krail.core.eventbus.EventBusModule;
 import uk.q3c.krail.core.guice.vsscope.VaadinSessionScopeModule;
-import uk.q3c.krail.core.services.ServicesModel;
-import uk.q3c.krail.core.services.ServicesModule;
 import uk.q3c.krail.i18n.test.TestI18NModule;
 import uk.q3c.krail.option.test.TestOptionModule;
 import uk.q3c.krail.quartz.job.DefaultJobModule;
 import uk.q3c.krail.quartz.scheduler.DefaultSchedulerModule;
 import uk.q3c.krail.quartz.scheduler.KrailScheduler;
 import uk.q3c.krail.quartz.scheduler.SchedulerProvider;
+import uk.q3c.krail.service.ServiceModel;
+import uk.q3c.krail.service.bind.ServicesModule;
 import uk.q3c.krail.testutil.guice.uiscope.TestUIScopeModule;
 import uk.q3c.krail.testutil.persist.TestPersistenceModule;
 import uk.q3c.krail.util.UtilsModule;
@@ -52,7 +52,7 @@ public class DefaultQuartzServiceTest {
     @Inject
     SchedulerProvider provider;
     @Inject
-    ServicesModel servicesModel;
+    ServiceModel servicesModel;
 
 
     @BeforeClass

@@ -13,9 +13,9 @@
 package uk.q3c.krail.quartz.service;
 
 import org.quartz.Scheduler;
-import uk.q3c.krail.core.services.Service;
 import uk.q3c.krail.quartz.job.JobModuleBase;
 import uk.q3c.krail.quartz.scheduler.DefaultSchedulerModule;
+import uk.q3c.krail.service.Service;
 
 /**
  * Helps provide a separation between the configuration and instantiation of Quartz, in line with the Guice best

@@ -19,10 +19,7 @@ import org.quartz.JobListener;
 import org.quartz.SchedulerException;
 import org.quartz.SchedulerListener;
 import uk.q3c.krail.config.ApplicationConfigurationService;
-import uk.q3c.krail.core.eventbus.GlobalBusProvider;
-import uk.q3c.krail.core.services.AbstractService;
-import uk.q3c.krail.core.services.Dependency;
-import uk.q3c.krail.core.services.RelatedServicesExecutor;
+import uk.q3c.krail.eventbus.GlobalBusProvider;
 import uk.q3c.krail.i18n.I18NKey;
 import uk.q3c.krail.i18n.Translate;
 import uk.q3c.krail.quartz.i18n.LabelKey;
@@ -30,6 +27,9 @@ import uk.q3c.krail.quartz.job.JobEntry;
 import uk.q3c.krail.quartz.job.JobListenerEntry;
 import uk.q3c.krail.quartz.job.KrailJobFactory;
 import uk.q3c.krail.quartz.scheduler.*;
+import uk.q3c.krail.service.AbstractService;
+import uk.q3c.krail.service.Dependency;
+import uk.q3c.krail.service.RelatedServiceExecutor;
 
 import java.util.Map;
 import java.util.Map.Entry;
@@ -67,7 +67,7 @@ public class DefaultQuartzService extends AbstractService implements QuartzServi
                                 Set<TriggerListenerEntry> triggerListeners, Provider<KrailSchedulerFactory>
             factoryProvider, ApplicationConfigurationService applicationConfigurationService,
                                 SchedulerProvider schedulerProvider, Injector injector, KrailJobFactory jobFactory, Set<JobEntry> jobs, Set<JobListenerEntry>
-                                            jobListeners, GlobalBusProvider globalBusProvider, RelatedServicesExecutor
+                                            jobListeners, GlobalBusProvider globalBusProvider, RelatedServiceExecutor
                                             servicesExecutor) {
         super(translate, globalBusProvider, servicesExecutor);
         this.schedulerConfigurations = schedulerConfigurations;
