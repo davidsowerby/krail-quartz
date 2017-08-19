@@ -13,14 +13,13 @@
 package uk.q3c.krail.quartz.scheduler;
 
 import org.quartz.Scheduler;
-import uk.q3c.krail.core.guice.DefaultBindingManager;
 import uk.q3c.krail.quartz.job.JobModuleBase;
 
 /**
  * Provides the configuration  to construct the Quartz {@link Scheduler}. This module also defines the binding for
  * the {@link KrailSchedulerFactory}. You can create additional schedulers, scheduler listeners and / or trigger
  * listeners by creating another sub-class of {@link SchedulerModuleBase} and adding it to your injector in your
- * sub-class of {@link DefaultBindingManager} module based on <p/> To define jobs, either use sub-classes of {@link
+ * sub-class of  DefaultBindingManager module based on <p/> To define jobs, either use sub-classes of {@link
  * JobModuleBase}, or obtain an instance of {@link KrailScheduler} from {@link SchedulerProvider} and add jobs directly
  *
  * @author David Sowerby

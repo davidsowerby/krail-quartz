@@ -12,8 +12,6 @@
  */
 package uk.q3c.krail.quartz.job;
 
-import uk.q3c.krail.core.guice.DefaultBindingManager;
-
 public class DefaultJobModule extends JobModuleBase {
 
     /**
@@ -21,7 +19,7 @@ public class DefaultJobModule extends JobModuleBase {
      * provide jobs through Guice, provide your own sub-class of {@link JobModuleBase} and specify the jobs using
      * {@link #addJob(String, org.quartz.JobBuilder, org.quartz.TriggerBuilder)}
      * <p/>
-     * Your module will then need to be added to your sub-class of {@link DefaultBindingManager}. This module can be
+     * Your module will then need to be added to your sub-class of DefaultBindingManager. This module can be
      * removed, as it would then serve no useful purpose.
      *
      * @see uk.q3c.krail.quartz.job.JobModuleBase#addJobs()
