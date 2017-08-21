@@ -68,7 +68,7 @@ dependencies {
     testCompile 'com.mycila:mycila-guice:2.10.ga'
     testCompile 'com.mycila.testing.plugins:mycila-testing-guice:2.8'
     testCompile 'org.mockito:mockito-all:1.10.19'
-    testCompile 'uk.q3c.krail:krail:0.9.10.17'
+    testCompile 'uk.q3c.krail:krail:0.9.10.21'
 }
 
 task wrapper(type: Wrapper) {
